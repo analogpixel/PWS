@@ -1,0 +1,6 @@
+Processing Web Sockets
+
+sock.html : sample client.  If you have the new ios version, it'll send the acel data to the server.
+
+websocket/ : the processing sketch that accepts the connection and grabs the data
+

@@ -1,0 +1,37 @@
+<head>
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+    <script>
+      var ws = new WebSocket("ws://192.168.0.104:1234");
+      
+      ws.onopen = function() {
+        alert("CONNECTIIIONNN");
+        //ws.send( {'test': 'message'} );
+        ws.send("a long string");
+        
+        window.ondevicemotion = function(event) {
+            var x = event.accelerationIncludingGravity.x;
+            var y = event.accelerationIncludingGravity.y;
+            var z = event.accelerationIncludingGravity.z;
+            ws.send("x:" + x + ":y:" + y + ":z:" + z);
+        };
+      };
+      
+      ws.onclose = function(evt) {
+       alert("closed con");
+      };
+      
+      ws.onerror = function(evt) {
+        alert("error error");
+      };
+      
+      ws.onmessage = function(evt) {
+        alert("got a message" + evt.data);
+      };
+    
+    </script>
+</head>
+
+
+<body>
+</body>
